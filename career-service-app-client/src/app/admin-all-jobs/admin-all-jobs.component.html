@@ -1,0 +1,41 @@
+<div class="container">
+
+  <div>
+    <form [formGroup]="searchForm">
+      <div fxLayout="row" fxLayoutGap="10px">
+        <div fxFlex="70">
+          <mat-form-field appearance="outline" class="field">
+            <input matInput formControlName="searchKeyword" placeholder="Enter Keyword to Search ..." (input)="onSearchInputChange()">
+          </mat-form-field>
+        </div>
+        <div fxFlex="30">
+          <mat-form-field appearance="outline" class="field">
+            <mat-label>Filter by Attribute</mat-label>
+            <mat-select formControlName="filterAttribute" (selectionChange)="onFilterAttributeChange()">
+              <mat-option value="position">Position</mat-option>
+              <mat-option value="location">Location</mat-option>
+              <mat-option value="description">Description</mat-option>
+              <mat-option value="requirements">Requirements</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div *ngFor="let job of jobsList">
+    <mat-card class="job-posting" (click)="showDetails(job.id)">
+      <mat-card-content>
+        <div class="job-title">{{ job.position }}</div>
+        <!-- <div class="job-company"><b>Company Name:</b> {{ job.company }}</div> -->
+        <div class="job-location"><b>Job Location:</b> {{ job.location }}</div>
+        <div class="job-description"><b>Job Description:</b> {{ job.description }}</div>
+        <div class="job-description"><b>Job Requirements:</b> {{ job.requirements }}</div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="updateJob(job.id)">Update</button>
+        <button mat-raised-button color="primary" (click)="deleteJob(job.id)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

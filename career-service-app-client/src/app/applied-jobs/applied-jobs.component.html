@@ -1,0 +1,19 @@
+<div class="container">
+  <div *ngIf="appliedJobsList.length == 0">
+    You have not yet applied to any jobs
+  </div>
+  <div *ngFor="let application of appliedJobsList">
+    <mat-card class="job-posting">
+      <mat-card-content>
+        <div class="job-title">{{ application.job.position }}</div>
+        <div class="job-company">{{ application.employer.companyName }}</div>
+        <div class="job-location">{{ application.job.location }}</div>
+        <div class="job-description">{{ application.job.description }}</div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button style="pointer-events: none;" color="primary">Status : {{application.status}}</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+</div>

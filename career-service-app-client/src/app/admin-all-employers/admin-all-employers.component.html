@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div>
+    <form [formGroup]="searchForm">
+      <div fxLayout="row" fxLayoutGap="10px">
+        <div fxFlex="70">
+          <mat-form-field appearance="outline" class="field">
+            <input matInput formControlName="searchKeyword" placeholder="Enter Keyword to Search ..." (input)="onSearchInputChange()">
+          </mat-form-field>
+        </div>
+        <div fxFlex="30">
+          <mat-form-field appearance="outline" class="field">
+            <mat-label>Filter by Attribute</mat-label>
+            <mat-select formControlName="filterAttribute" (selectionChange)="onFilterAttributeChange()">
+              <mat-option value="companyName">Company Name</mat-option>
+              <mat-option value="employerId">Employer Id</mat-option>
+              <mat-option value="website">Website</mat-option>
+              <mat-option value="emailId">Email Id</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div *ngFor="let emp of employersList">
+    <mat-card class="emp-data">
+      <mat-card-content>
+        <div class="emp-company">{{ emp.companyName }}</div>
+        <div class="emp-id"><b>Employer Id:</b> {{emp.employerId}}</div>
+        <div class="emp-website"><b>Company Website:</b> {{ emp.website }}</div>
+        <div class="emp-emailId"><b>Email Id:</b> {{ emp.emailId }}</div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="updateEmp(emp.employerId)">Update</button>
+        <button mat-raised-button color="primary" (click)="deleteEmp(emp.employerId)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

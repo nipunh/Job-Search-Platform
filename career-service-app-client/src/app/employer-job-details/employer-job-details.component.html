@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 class="page-title">{{ job.position }}</h1>
+  <h4>{{ loggedUser.companyName }}, {{ job.location }}</h4>
+
+  <div class="job-details">
+    <div class="job-description">Job Description: {{ job.description }}</div>
+    <div class="job-requirements">Job Requirements: {{ job.requirements }}</div>
+  </div>
+
+  <div class="candidate-list">
+    <h3>List of Candidates</h3>
+    <div class="scrollable-list">
+      <mat-card *ngFor="let candidate of candidateList">
+        <mat-card-content>
+          <div class="candidate-details">
+            <div class="candidate-info">
+              <div class="candidate-name">{{ candidate.candidate.firstName }}</div>
+              <div class="candidate-email">{{ candidate.candidate.emailId }}</div>
+              <div class="candidate-experience">Experience: {{ candidate.candidate.experience }} years</div>
+            </div>
+            <div class="candidate-actions">
+              <a id="downloadButton" mat-raised-button color="primary" (click)="downloadResume(candidate.candidate.userId)">Download</a>
+              <mat-form-field>
+                <mat-label>{{candidate.applicationStatus}}</mat-label>
+                <mat-select #mySelect [(ngModel)]="candidate.status" (selectionChange)="onApplicationStatusChange(candidate.candidate, mySelect.value)">
+                  <mat-option *ngFor="let status of applicationStatuses" [value]="status">{{ status }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <button *ngIf="statusChanged.userId === candidate.candidate.userId" mat-raised-button color="primary"  (click)="saveApplicationStatus(candidate.candidate, job.id)">Save</button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

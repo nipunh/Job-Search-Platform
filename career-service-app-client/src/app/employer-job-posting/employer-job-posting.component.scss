@@ -1,0 +1,25 @@
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.add-job-button {
+  margin-left: auto;
+}
+
+.job-posting {
+  margin-bottom: 1rem;
+}

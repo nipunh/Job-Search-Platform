@@ -1,0 +1,93 @@
+<main class="container-fluid">
+  <div fxLayout="column" style="height: 100%;">
+    <div class="centeredContent">
+      <h1 class="welcome" [@fadeInAnimation]>Welcome to the Career Service App!</h1>
+      <p class="slogan" [@fadeInAnimation]>Find your dream job with us!</p>
+    </div>
+  </div>
+  <ng-container *ngIf="loggedUser; else elseTemplate">
+    <ng-container *ngIf="loggedUser.authority === 'ROLE_EMPLOYER'; else elseTemplate">
+      Welcome {{ loggedUser.companyName }}
+    </ng-container>
+    <ng-template #elseTemplate>
+      <!-- Welcome {{ loggedUser.firstName }} {{ loggedUser.lastName }} -->
+      <div class="welcome-container">
+        <div class="description" [@slideInAnimation]>
+          <p>
+            The Job Application Portal is your one-stop destination to discover new job opportunities and take the next step
+            in your career.
+          </p>
+          <p>
+            Whether you are an experienced professional or just starting your journey, we have a wide range of job listings
+            from various industries and locations to suit your preferences.
+          </p>
+          <p>
+            Start exploring and find the perfect job match for your skills and aspirations. Good luck with your job search!
+          </p>
+        </div>
+        <div class="benefits" [@fadeInOutAnimation]>
+          <h2>Why Choose Us?</h2>
+          <ul>
+            <li>Access to a vast network of top employers.</li>
+            <li>Wide range of job categories and locations.</li>
+            <li>Easy application process for job seekers.</li>
+            <li>Timely notifications for new job postings.</li>
+            <li>Expert career guidance and resources.</li>
+          </ul>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+  <ng-template #elseTemplate class="d-md-flex my-md-3 ps-md-3">
+
+    <div class="row">
+      <div class="col">
+        <mat-card class="job-posting">
+          <mat-card-title style="text-align: center;">Candidate</mat-card-title>
+          <mat-card-content>
+            <img src="/assets/candidate.png" style="max-width: 300px; max-height: 300px;">
+          </mat-card-content>
+          <mat-card-actions class="button-container">
+            <button mat-raised-button color="primary" (click)="login(Authority.CANDIDATE)">
+              Candidate Login
+            </button>
+            <button mat-raised-button color="primary" (click)="signup(Authority.CANDIDATE)">
+              Candidate Signup
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      <div class="col">
+        <mat-card class="job-posting">
+          <mat-card-title>Employer</mat-card-title>
+          <img mat-card-image src="/assets/employer.png" style="max-width: 300px; max-height: 300px;">
+          <mat-card-content>
+          </mat-card-content>
+          <mat-card-actions class="button-container">
+            <button mat-raised-button color="primary" (click)="login(Authority.EMPLOYER)">
+              Employer Login
+            </button>
+            <button mat-raised-button color="primary" (click)="signup(Authority.EMPLOYER)">
+              Employer Signup
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      <div class="col">
+        <mat-card class="job-posting">
+          <mat-card-title>Admin</mat-card-title>
+          <img mat-card-image src="/assets/admin.png" style="max-width: 300px; max-height: 300px;">
+          <mat-card-content>
+          </mat-card-content>
+          <mat-card-actions class="button-container">
+            <button mat-raised-button color="primary" (click)="login(Authority.ADMIN)">
+              Admin Login
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </ng-template>
+</main>

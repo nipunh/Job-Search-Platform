@@ -1,0 +1,41 @@
+<div class="container">
+
+  <div>
+    <form [formGroup]="searchForm">
+      <div fxLayout="row" fxLayoutGap="10px">
+        <div fxFlex="70">
+          <mat-form-field appearance="outline" class="field">
+            <input matInput formControlName="searchKeyword" placeholder="Enter Keyword to Search ..." (input)="onSearchInputChange()">
+          </mat-form-field>
+        </div>
+        <div fxFlex="30">
+          <mat-form-field appearance="outline" class="field">
+            <mat-label>Filter by Attribute</mat-label>
+            <mat-select formControlName="filterAttribute" (selectionChange)="onFilterAttributeChange()">
+              <mat-option value="firstName">First Name</mat-option>
+              <mat-option value="lastName">Last Name</mat-option>
+              <mat-option value="emailId">Email Id</mat-option>
+              <mat-option value="education">Highest Qualification</mat-option>
+              <mat-option value="experience">Years of Experience</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div *ngFor="let candidate of candidatesList">
+    <mat-card class="candidate-data">
+      <mat-card-content>
+        <div class="candidate-name">{{ candidate.firstName  + ' ' + candidate.lastName}}</div>
+        <div class="candidate-emailId"><b>Email Id:</b> {{ candidate.emailId }}</div>
+        <div class="candidate-education"> <b>Highest Qualification:</b> {{ candidate.education }}</div>
+        <div class="candidate-experience"><b>Years of Experience:</b> {{ candidate.experience }}</div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="updateCandidate(candidate.userId)">Update</button>
+        <button mat-raised-button color="primary" (click)="deleteCandidate(candidate.userId)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

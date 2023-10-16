@@ -1,0 +1,39 @@
+<div class="container">
+  <form [formGroup]="jobPostingForm" class="form">
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Position</mat-label>
+      <input matInput formControlName="position" placeholder="Enter position">
+      <mat-error *ngIf="jobPostingForm.controls['position'].invalid && jobPostingForm.controls['position'].touched">
+        Position is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Location</mat-label>
+      <input matInput formControlName="location" placeholder="Enter Location">
+      <mat-error *ngIf="jobPostingForm.controls['location'].invalid && jobPostingForm.controls['location'].touched">
+        Location is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" placeholder="Enter Description"></textarea>
+      <mat-error *ngIf="jobPostingForm.controls['description'].invalid && jobPostingForm.controls['description'].touched">
+        Description is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Requirements</mat-label>
+      <textarea matInput formControlName="requirements" placeholder="Enter requirements"></textarea>
+      <mat-error *ngIf="jobPostingForm.controls['requirements'].invalid && jobPostingForm.controls['requirements'].touched">
+        Requirements is required
+      </mat-error>
+    </mat-form-field>
+
+    <button (click)="onSubmit()" mat-raised-button color="primary" [disabled]="jobPostingForm.invalid">
+      Submit
+    </button>
+  </form>
+</div>

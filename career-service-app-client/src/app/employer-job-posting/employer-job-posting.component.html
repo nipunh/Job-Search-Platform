@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="page-header">
+    <h1 class="page-title">My Job Posting</h1>
+    <button mat-raised-button color="primary" routerLink="/add-job-posting" class="add-job-button">Add Job</button>
+  </div>
+
+  <div *ngFor="let job of jobsList">
+    <mat-card class="job-posting" (click)="showDetails(job.id)">
+      <mat-card-content>
+        <div class="job-title">{{ job.position }}</div>
+        <div class="job-company">{{ job.company }}</div>
+        <div class="job-location">{{ job.location }}</div>
+        <div class="job-description">{{ job.description }}</div>
+        <div class="job-description">{{ job.requirements }}</div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="updateJob(job.id)">Update</button>
+        <button mat-raised-button color="primary" (click)="deleteJob(job.id)">Delete</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.form-fields {
+  margin-bottom: 20px;
+  /* Add margin-bottom to create spacing between the fields */
+}
+
+.field {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+}
+
+.auth-button {
+  width: 120px;
+  height: 40px;
+}
+
+.button-spacing {
+  width: 10px;
+  /* Adjust the width for desired spacing */
+}
+
+@media (max-width: 599px) {
+  div[fxLayout] {
+    justify-content: space-between;
+    /* Additional styling for extra-small screens if needed */
+  }
+
+  div[fxLayout] {
+    flex-direction: column;
+    /* Additional styling for extra-small screens if needed */
+  }
+}

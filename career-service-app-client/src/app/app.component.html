@@ -1,0 +1,47 @@
+<header class="site-header sticky-top py-1 container-fluid">
+  <nav class="container d-flex flex-column flex-md-row justify-content-between container-fluid">
+    <a class="py-2" href="#" aria-label="Career Service App">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img"
+        viewBox="0 0 24 24" [ngClass]="{'activeTab': _router.url.includes('home')}">
+        <title>Career Service App</title>
+        <circle cx="12" cy="12" r="10" />
+        <path
+          d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94" />
+      </svg>
+    </a>
+    <a *ngIf="loggedUser!=null && loggedUser.authority !== Authority.ADMIN" class="py-2 d-none d-md-inline-block" routerLink="/my-profile" [ngClass]="{'activeTab': _router.url.includes('my-profile')}">
+      My Profile
+    </a>
+    <a *ngIf="loggedUser!=null && loggedUser.authority == Authority.CANDIDATE" class="py-2 d-none d-md-inline-block" routerLink="/browse-job-postings" [ngClass]="{'activeTab': _router.url.includes('browse-job-postings')}">
+      Browse Jobs Postings
+    </a>
+    <a *ngIf="loggedUser!=null && loggedUser.authority === Authority.EMPLOYER" class="py-2 d-none d-md-inline-block" routerLink="/employer-job-posting" [ngClass]="{'activeTab': _router.url.includes('employer-job-posting')}">
+      Employer Jobs Postings
+    </a>
+
+    <a *ngIf="loggedUser!=null && loggedUser.authority === Authority.EMPLOYER" class="py-2 d-none d-md-inline-block" routerLink="/add-job-posting" [ngClass]="{'activeTab': _router.url.includes('add-job-posting')}">
+      Add Job Posting
+    </a>
+    <a *ngIf="loggedUser!=null && loggedUser.authority === Authority.ADMIN" class="py-2 d-none d-md-inline-block" routerLink="/admin-all-candidates" [ngClass]="{'activeTab': _router.url.includes('admin-all-candidates')}">
+      All Candidates
+    </a>
+    <a *ngIf="loggedUser!=null && loggedUser.authority === Authority.ADMIN" class="py-2 d-none d-md-inline-block" routerLink="/admin-all-employers" [ngClass]="{'activeTab': _router.url.includes('admin-all-employers')}">
+      All Employers
+    </a>
+    <a *ngIf="loggedUser!=null && loggedUser.authority === Authority.ADMIN" class="py-2 d-none d-md-inline-block" routerLink="/admin-all-postings" [ngClass]="{'activeTab': _router.url.includes('admin-all-postings')}">
+      All Job Postings
+    </a>
+    <a *ngIf="loggedUser!=null && loggedUser.authority === Authority.CANDIDATE" class="py-2 d-none d-md-inline-block" routerLink="/applied-jobs" [ngClass]="{'activeTab': _router.url.includes('applied-jobs')}">
+      Applied Jobs
+    </a>
+    <a *ngIf="loggedUser!=null" class="py-2 d-none d-md-inline-block btn-dark" (click)="logout()">
+      Logout
+    </a>
+  </nav>
+</header>
+<div class="content">
+<router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>
+

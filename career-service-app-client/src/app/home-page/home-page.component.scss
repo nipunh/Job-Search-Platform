@@ -1,0 +1,161 @@
+.centeredContent {
+  padding: 30px;
+  text-align: center;
+}
+
+.custom-height {
+  height: 100%;
+}
+
+.container {
+  // max-width: 960px;
+}
+
+.button-container {
+  gap: 10px;
+  /* Adjust the value as per your desired spacing */
+}
+
+/*
+ * Custom translucent site header
+ */
+
+.site-header {
+  background-color: rgba(0, 0, 0, .85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+.site-header a {
+  color: #8e8e8e;
+  transition: color .15s ease-in-out;
+}
+
+.site-header a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*
+ * Dummy devices (replace them with your own or something else entirely!)
+ */
+
+.product-device {
+  position: absolute;
+  right: 10%;
+  bottom: -30%;
+  width: 300px;
+  height: 540px;
+  background-color: #333;
+  border-radius: 21px;
+  transform: rotate(30deg);
+}
+
+.product-device::before {
+  position: absolute;
+  top: 10%;
+  right: 10px;
+  bottom: 10%;
+  left: 10px;
+  content: "";
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 5px;
+}
+
+.product-device-2 {
+  top: -25%;
+  right: auto;
+  bottom: 0;
+  left: 5%;
+  background-color: #e5e5e5;
+}
+
+
+/*
+ * Extra utilities
+ */
+
+.flex-equal>* {
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .flex-md-equal>* {
+    flex: 1;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.job-posting {
+  background-color: #77766f; /* Set your desired card color here */
+  color: white; /* Set the text color */
+}
+
+.welcome-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.welcome {
+  animation: color-change 1500ms infinite;
+  text-align: center;
+  font-size: 36px;
+}
+
+.slogan {
+  animation: color-change 1500ms infinite;
+  text-align: center;
+  font-size: 24px;
+}
+
+@keyframes color-change {
+  0% { color: maroon; }
+  25% { color: black; }
+  50% { color: goldenrod; }
+  75% { color: black; }
+  100% { color: maroon; }
+}
+
+.description {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.welcome-container h1,
+.welcome-container p {
+  opacity: 1;
+}

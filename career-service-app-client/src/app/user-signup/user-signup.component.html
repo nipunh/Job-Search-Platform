@@ -1,0 +1,107 @@
+<div class="container">
+    <h1>{{ authority }} Signup</h1>
+    <div *ngIf="authority === Authority.CANDIDATE">
+        <form [formGroup]="candidateProfileForm">
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="emailId" placeholder="Enter email">
+                <mat-error *ngIf="candidateProfileForm.controls['emailId'].invalid && candidateProfileForm.controls['emailId'].touched">
+                    <span *ngIf="candidateProfileForm.get('emailId')?.errors?.['required']">Email is required</span>
+                    <span *ngIf="candidateProfileForm.get('emailId')?.errors?.['email']">Invalid email format</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName" placeholder="Enter first name">
+                <mat-error *ngIf="candidateProfileForm.controls['firstName'].invalid && candidateProfileForm.controls['firstName'].touched">
+                    First Name is required
+                </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName" placeholder="Enter last name">
+                <mat-error *ngIf="candidateProfileForm.controls['lastName'].invalid && candidateProfileForm.controls['lastName'].touched">
+                    Last Name is required
+                </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Experience</mat-label>
+                <input type="number" matInput formControlName="experience" placeholder="Enter experience" [min]="0">
+                <mat-error *ngIf="candidateProfileForm.controls['experience'].invalid && candidateProfileForm.controls['experience'].touched">
+                    Experience is required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Education</mat-label>
+                <input matInput formControlName="education" placeholder="Enter education">
+                <mat-error *ngIf="candidateProfileForm.controls['education'].invalid && candidateProfileForm.controls['education'].touched">
+                    Education is required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" placeholder="Enter password">
+                <mat-error *ngIf="candidateProfileForm.controls['password'].invalid && candidateProfileForm.controls['password'].touched">
+                    Password is required
+                </mat-error>
+            </mat-form-field>
+    
+            <button mat-raised-button color="primary" (click)="createProfile()" [disabled]="candidateProfileForm.invalid">
+                Signup
+            </button>
+            <button mat-raised-button color="primary" class="auth-button" routerLink="/home">
+                Home
+            </button>
+        </form>
+    </div>
+    <div *ngIf="authority === Authority.EMPLOYER">
+        <form [formGroup]="employerProfileForm">
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="emailId" placeholder="Enter email">
+                <mat-error *ngIf="employerProfileForm.controls['emailId'].invalid && employerProfileForm.controls['emailId'].touched">
+                    <span *ngIf="employerProfileForm.get('emailId')?.errors?.['required']">Email is required</span>
+                    <span *ngIf="employerProfileForm.get('emailId')?.errors?.['email']">Invalid email format</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Company Name</mat-label>
+                <input matInput formControlName="companyName" placeholder="Enter company name">
+                <mat-error *ngIf="employerProfileForm.controls['companyName'].invalid && employerProfileForm.controls['companyName'].touched">
+                    Company Name is required
+                </mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Company Website</mat-label>
+                <input matInput formControlName="website" placeholder="Enter website">
+                <mat-error *ngIf="employerProfileForm.controls['website'].invalid && employerProfileForm.controls['website'].touched">
+                    <span *ngIf="employerProfileForm.get('website')?.errors?.['required']">Website is required</span>
+                    <span *ngIf="employerProfileForm.get('website')?.errors?.['email']">Invalid website format</span>
+                </mat-error>
+            </mat-form-field>    
+
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" placeholder="Enter password">
+                <mat-error *ngIf="employerProfileForm.controls['password'].invalid && employerProfileForm.controls['password'].touched">
+                    Password is required
+                </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" (click)="createProfile()" [disabled]="employerProfileForm.invalid">
+                Signup
+            </button>
+            <button mat-raised-button color="primary" class="auth-button" routerLink="/home">
+                Home
+            </button>
+        </form>
+    </div>
+
+</div>
