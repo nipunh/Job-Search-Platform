@@ -16,8 +16,8 @@ The primary users and the features they are offered are mentioned below:
    <br/> Role - Architect and Backend Developer
    <br/> Strengths - Spring Boot, Security and Cloud
 3. Nipun Hedaoo (nipunh) - 40165942
-   <br/> Role - Support Manager and Frontend Developer 
-   <br/> Strengths - Angular, MongoDB
+   <br/> Role - Support Manager and Full Stack Developer 
+   <br/> Strengths - Angular, MongoDB, Spring Boot, CI/CD
 4. Jwalit Shah (jwalit21) - 40227541
    <br/> Role - Quality Analyst and Frontend Developer
    <br/> Strengths - Angular, Spring Boot
